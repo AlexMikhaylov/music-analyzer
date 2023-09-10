@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Music Analyzer Tool</title>
+</head>
+<body>
+<h1 th:text="'Willkommen ' + ${name} + '!'"></h1>
+
+<a th:href="@{/upload}">Zur Datei-Upload-Seite</a>
+</body>
+</html>
