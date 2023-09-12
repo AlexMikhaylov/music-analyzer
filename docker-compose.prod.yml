@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  music-analyzer:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/proddb
+      - SPRING_DATASOURCE_USERNAME=produser
+      - SPRING_DATASOURCE_PASSWORD=prodpass
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: proddb
+      POSTGRES_USER: produser
+      POSTGRES_PASSWORD: prodpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
