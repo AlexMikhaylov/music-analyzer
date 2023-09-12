@@ -1,5 +1,5 @@
 # Use the official Maven image as the base
-FROM maven:3.8.2-jdk-17 AS build
+FROM maven:3.9.4-amazoncorretto-17 AS build
 
 # Set the working directory within the container
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY src ./src/
 RUN mvn -f pom.xml clean package
 
 # Use the official Java 17 image as the base for the runtime image
-FROM openjdk:17-jdk
+FROM amazoncorretto:17.0.8-alpine
 
 # Expose port 8080 for the application
 EXPOSE 8080
