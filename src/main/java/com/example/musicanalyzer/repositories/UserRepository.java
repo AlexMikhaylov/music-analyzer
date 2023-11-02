@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    // Hier können benutzerdefinierte Abfragemethoden hinzugefügt werden
+    // placeholder for specific db queries
 }
